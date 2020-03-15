@@ -6,7 +6,7 @@ var drawing = true;
 var canvas = document.querySelector("#canvas")
 
 var ctx = canvas.getContext("2d")
-ctx.fillStyle = "red";
+console.log(ctx)
 
 //Listeners!!
 //Add a listener for loading the window
@@ -14,6 +14,7 @@ window.addEventListener("load", function (e) {
     // https://stackoverflow.com/questions/1664785/resize-html5-canvas-to-fit-window
     ctx.canvas.width = window.innerWidth * .75
     ctx.canvas.height = window.innerHeight * .75
+    ctx.fillStyle = "rgb(255,0,0)";
 })
 //Add a listener for the mouse movement
 
@@ -22,6 +23,13 @@ canvas.addEventListener("mousemove", function (e) {
         draw(e.pageX - radius / 2, e.pageY - radius / 2);
     }
 })
+
+// https://stackoverflow.com/questions/36033031/draw-on-html5-canvas-on-touch-devices
+// canvas.ontouchstart = function(e) {
+//     console.log(e)
+//     if (e.touches) e = e.touches[0];
+//     return false;
+//   }
 
 //Add a listener for the touch move
 //Add a listener for the keydown
